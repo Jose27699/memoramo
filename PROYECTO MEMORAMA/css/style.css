@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: boder-box;
+}
+
+main{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 600px;
+    margin: auto;
+}
+
+
+figure,
+figure img {
+    display: inline-block;
+    width: 100%;
+}
+
+figure{
+    position: relative;
+    transition: all ease .5s;
+    transform-style: preserve-3d;
+    transform: perspective(600px) rotateY(0deg);
+    cursor: pointer; 
+}
+
+figure::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255 / 0.137);
+
+}
+
+
+figure .opened {
+    transform: perspective(600px) rotate(180deg);
+}
+
+figure .back{
+    display: black;
+    backface-visibility: hidden;
+}
+
+
+figure .searched-image {
+    position: absolute;
+    top: 0;
+    transform: perspective(600px) rotateY(180deg);
+    backface-visibility: hidden;
+    height: 100%;
+    overflow: hidden;
+}
